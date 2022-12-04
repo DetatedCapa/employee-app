@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <table id="table_id" class="display">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th width="200">Name</th>
+                <th>Identity_Number</th>
+                <th>Department</th>
+                <th width="200">Address</th>
+                <th>Salary</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+{% for employee in employee.all %}
+            <tr>
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.identity_number}}</td>
+                <td>{{employee.department}}</td>
+                <td>{{employee.address}}</td>
+                <td>{{employee.salary}}</td>
+                <td><a href="{% url 'edit' employee.id %}" class="btn btn-info">Edit</a></td>
+                <td><a href="{% url 'delete' employee.id %}" class="btn btn-danger">Delete</a></td>
+               
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>$(document).ready( function () {
+        $('#table_id').DataTable();
+    } );</script>
+    
+      {% endblock %}
+

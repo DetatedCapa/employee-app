@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Edit Employee</h3>
+<div class="row mt-5">
+<form method="POST">
+    {% csrf_token %}    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" value="{{employee.name}}" name="name" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Identity Number</label>
+        <input type="text" value="{{employee.identity_number}}" name="identity_number" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+    
+    <div class="form-group">
+        <label for="exampleInputEmail1">Department</label>
+        <input type="text" value="{{employee.department}}" name="department" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>  
+    
+    <div class="form-group">
+        <label for="exampleInputEmail1">Address</label>
+        <input type="text" value="{{employee.address}}" name="address" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Salary</label>
+        <input type="text" value="{{employee.salary}}" name="salary" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div> 
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+  {% endblock %}
